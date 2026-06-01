@@ -42,11 +42,12 @@ const studentList = [
 ];
 
 function isAccessAllowed() {
-  // Get current time in WIB (UTC+7)
+  // Allow only after Tuesday, 2 June 2026 18:00 WIB
   const now = new Date();
-  const wibTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
-  const hour = wibTime.getHours();
-  return hour === 18;
+  const wibNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
+  // target timestamp in WIB (UTC+7)
+  const target = new Date('2026-06-02T18:00:00+07:00');
+  return wibNow >= target;
 }
 
 function updateAccessControl() {
@@ -56,7 +57,7 @@ function updateAccessControl() {
     studentNameInput.disabled = true;
     previewBtn.disabled = true;
     downloadBtn.disabled = true;
-    message.textContent = '⏰ Website hanya dapat diakses pada pukul 18:00 WIB';
+    message.textContent = '⏰ Website hanya dapat diakses setelah Selasa, 2 Juni 2026 pukul 18:00 WIB';
     message.style.color = 'var(--danger)';
   } else {
     studentNameInput.disabled = false;
