@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLBN Grobogan - Kelulusan</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-group">
+        <img class="brand-logo" src="logo/jawa tengah.png" alt="Logo Jawa Tengah" />
+        <div>
+          <p class="eyebrow">SLBN Grobogan</p>
+          <h1>Kelulusan SDLB &amp; SMPLB</h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Sertifikat Kelulusan Resmi</p>
+        <h2>Verifikasi nama untuk unduh SKL resmi.</h2>
+        <p>Masukkan nama langsung, jika dinyatakan lulus maka tombol unduh akan aktif dan SKL resmi tersedia.</p>
+      </div>
+    </section>
+
+    <main class="grid-layout">
+      <section class="panel panel-form">
+        <h2>Cek Kelulusan</h2>
+        <label for="studentName">Nama Peserta Didik</label>
+        <input id="studentName" type="text" placeholder="Contoh: Ahmad Muzaki" autocomplete="off" />
+        <div class="button-row">
+          <button id="previewBtn" type="button">Cek Kelulusan</button>
+          <button id="downloadBtn" type="button" disabled>Unduh SKL</button>
+        </div>
+        <p id="message" class="message">Masukkan nama siswa untuk melihat status dan unduh SKL.</p>
+        <div id="suggestions" class="suggestions"></div>
+      </section>
+
+      <section class="panel panel-preview">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Preview Surat Keterangan Lulus</p>
+            <h2>Ringkasan SKL</h2>
+          </div>
+        </div>
+        <div id="sklPreview" class="skl-preview">
+          <p><em>Masukkan nama lalu klik "Cek Kelulusan" untuk melihat ringkasan SKL.</em></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
