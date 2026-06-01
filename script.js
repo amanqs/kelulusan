@@ -46,7 +46,7 @@ function isAccessAllowed() {
   const now = new Date();
   const wibNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
   // target timestamp in WIB (UTC+7)
-  const target = new Date('2026-06-02T18:00:00+07:00');
+  const target = new Date('2026-06-01T22:00:00+07:00');
   return wibNow >= target;
 }
 
