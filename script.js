@@ -41,6 +41,37 @@ const studentList = [
   { name: 'ZAINAL ARIFIN', file: 'SKL/SURAT KELULUSAN SMPLB/ZAINAL ARIFIN.pdf' },
 ];
 
+function isAccessAllowed() {
+  // Get current time in WIB (UTC+7)
+  const now = new Date();
+  const wibTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
+  const hour = wibTime.getHours();
+  return hour === 18;
+}
+
+function updateAccessControl() {
+  const allowed = isAccessAllowed();
+  
+  if (!allowed) {
+    studentNameInput.disabled = true;
+    previewBtn.disabled = true;
+    downloadBtn.disabled = true;
+    message.textContent = '⏰ Website hanya dapat diakses pada pukul 18:00 WIB';
+    message.style.color = 'var(--danger)';
+  } else {
+    studentNameInput.disabled = false;
+    previewBtn.disabled = false;
+    message.textContent = 'Masukkan nama siswa untuk melihat status dan unduh SKL.';
+    message.style.color = 'var(--muted)';
+  }
+}
+
+// Check access on page load
+document.addEventListener('DOMContentLoaded', updateAccessControl);
+
+// Check access every minute
+setInterval(updateAccessControl, 60000);
+
 function normalize(text) {
   return text
     .trim()
